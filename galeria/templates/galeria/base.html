@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Galeria de fotos{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-500 text-white p-6 shadow-lg rounded-b-lg">
+        <div class="container mx-auto flex flex-col gap-3 items-center">
+            <div class="flex items-center">
+                <div class="text-3xl mr-4">
+                    ✈
+                </div>
+                <!-- Título da Página -->
+                <h1 class="text-4xl text-black text-center sm:text-left">
+                    Países para Visitar
+                </h1>
+            </div>
+            <!-- action=" url 'pesquisar_pais' " -->
+            <form method="get" action="{% url 'pesquisar_pais' %}"
+            class="w-full max-w-lg flex bg-white rounded-full shadow-md overflow-hidden">
+                <input type="text" name="q" placeholder="Pesquisar país"
+                class="flex-grow p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-l-full pl-5">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-900 text-white p-3 px-6 rounded-r-full transition duration-300 ease-in-out flex items-center justify-center"><i class="fas fa-search mr-2"></i> Pesquisar</button>
+            </form>
+        </div>
+    </header>
+    <main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-md">
+        {% block content%}{% endblock %}
+    </main>
+    <footer class="mt-12 p-6 text-center text-gray-600">
+        <p>&copy; 2025 viagens. Todos os direitos reservados a Emmanuel.</p>
+    </footer>
+</body>
+
+</html>

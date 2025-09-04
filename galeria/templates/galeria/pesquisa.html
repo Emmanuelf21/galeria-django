@@ -1,74 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "galeria/base.html"%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+{% block content %}
 
-<body>
-    <header class="bg-blue-500 text-white p-6 shadow-lg rounded-b-lg">
-        <div class="container mx-auto flex flex-col gap-3 items-center">
-            <div class="flex items-center">
-                <div class="text-3xl mr-4">
-                    ✈
-                </div>
-                <!-- Título da Página -->
-                <h1 class="text-4xl text-black text-center sm:text-left">
-                    Países para Visitar
-                </h1>
-            </div>
-            <!-- action=" url 'pesquisar_pais' " -->
-            <form method="get" action="#" class="w-full max-w-lg flex bg-white rounded-full shadow-md overflow-hidden">
-                <input type="text" name="q" placeholder="Pesquisar país"
-                    class="flex-grow p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-l-full pl-5">
-                <button type="submit"
-                    class="bg-blue-600 hover:bg-blue-900 text-white p-3 px-6 rounded-r-full transition duration-300 ease-in-out flex items-center justify-center"><i
-                        class="fas fa-search mr-2"></i> Pesquisar</button>
-            </form>
-        </div>
-    </header>
-    <main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-md">
-        {% if resultados %}
-        <h2 class="text-2xl font-semibold mb-6 text-center">
-            Países encontrados
-        </h2>
-        <div class="flex flex-wrap justify-center gap-6">
-            {% for pais in resultados %}
-            <div
-                class="w-full relative sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-5rem)] bg-gray-50 p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                {% if pais.image %}
-                    <img src="{{ pais.image.url }}" alt=""
-                    class="w-full h-48 object-cover blur-[2px] rounded-md mb-4">
-                {% endif %}
-                <div class="absolute top-5 p-2 ">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">{{pais.title}}</h3>
-                    <p class="text-white mb-4">{{pais.description}}</p>
-                    <a href="{% url 'pais_detail' id=pais.id%}"
-                        class="text-white underline hover:text-blue-700 font-semibold">Ver país &rarr;</a>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        {% else %}
-        <h2 class="text-2xl font-semibold mb-6 text-center">
-            Nenhum País encontrado
-        </h2>
+{% if resultados %}
+<h2 class="text-2xl font-semibold mb-6 text-center">
+    Países encontrados
+</h2>
+<div class="flex flex-wrap justify-center gap-6">
+    {% for pais in resultados %}
+    <div
+        class="w-full relative sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-5rem)] bg-gray-50 p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+        {% if pais.image %}
+        <img src="{{ pais.image.url }}" alt="" class="w-full h-48 object-cover blur-[2px] rounded-md mb-4">
         {% endif %}
-    </main>
-    <section class="mt-8 text-center">
-        <a href="{% url 'home' %}" class="inline-block bg-blue-500 hover:bg-blue-800 text-white font-bold py-3 px-3 rounded-full transition duration-300 ease-in-out shadow-lg">
-            &larr; Voltar para a Lista de Países
-        </a>
-    </section>
-    <footer class="mt-12 p-6 text-center text-gray-600">
-        <p>&copy; 2025 viagens. Todos os direitos reservados a Emmanuel.</p>
-    </footer>
-</body>
+        <div class="absolute top-5 p-2 ">
+            <h3 class="text-xl font-bold mb-2 text-gray-900">{{pais.title}}</h3>
+            <p class="text-white mb-4">{{pais.description}}</p>
+            <a href="{% url 'pais_detail' id=pais.id%}"
+                class="text-white underline hover:text-blue-700 font-semibold">Ver país &rarr;</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h2 class="text-2xl font-semibold mb-6 text-center">
+    Nenhum País encontrado
+</h2>
+{% endif %}
 
-</html>
+<section class="mt-8 text-center">
+    <a href="{% url 'home' %}"
+        class="inline-block bg-blue-500 hover:bg-blue-800 text-white font-bold py-3 px-3 rounded-full transition duration-300 ease-in-out shadow-lg">
+        &larr; Voltar para a Lista de Países
+    </a>
+</section>
+
+{% endblock %}
