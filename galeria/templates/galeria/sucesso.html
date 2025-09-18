@@ -1,0 +1,15 @@
+{%extends 'galeria/base.html'%}
+
+{% block content %}
+<div class="container mx-auto mt-8 p-4 text-center">
+    <h1 class="text-4xl font-bold text-green-500 mb-4">
+        Mensagem Enviada!
+    </h1>
+    <p class="text-gray-400">
+        Obrigado por entrar em contato. Responderemos em breve.
+    </p>
+    <a href="{% url 'home' %}" class="mt-8 inline-block px-6 py-2 text-white font-bold rounded-full transition duration-300 bg-blue-500 hover:bg-blue-800 py-3 px-3 ease-in-out shadow-lg">
+        Voltar para Home
+    </a>
+</div>
+{% endblock%}

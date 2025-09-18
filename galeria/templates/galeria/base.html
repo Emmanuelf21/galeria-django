@@ -14,22 +14,33 @@
 <body class="bg-gray-100 text-gray-900">
     <header class="bg-blue-500 text-white p-6 shadow-lg rounded-b-lg">
         <div class="container mx-auto flex flex-col gap-3 items-center">
-            <div class="flex items-center justify-center ">
-                <div class="text-3xl mr-4">
-                    ✈
+            
+            <div class="flex w-full items-center justify-between">
+                <a href="{% url 'home' %}" class=" hover:text-black text-xl">Home</a>
+                <div class="flex items-center justify-center ">
+                    <div class="text-3xl mr-4">
+                        ✈
+                    </div>
+                    <!-- Título da Página -->
+                    <h1 class="text-4xl text-black text-center sm:text-left">
+                        Países para Visitar
+                    </h1>
+
                 </div>
-                <!-- Título da Página -->
-                <h1 class="text-4xl text-black text-center sm:text-left">
-                    Países para Visitar
-                </h1>
-                <a href="{% url 'home' %}" class="ml-4 hover:text-black text-xl">Home</a>
+                <nav class="flex gap-3">
+                    <a href="{% url 'sobre_nos' %}" class=" hover:text-black text-md">Sobre Nós</a>
+                    <a href="{% url 'contato' %}" class=" hover:text-black text-md">Contato</a>
+                </nav>
             </div>
+
             <!-- action=" url 'pesquisar_pais' " -->
             <form method="get" action="{% url 'pesquisar_pais' %}"
-            class="w-full max-w-lg flex bg-white rounded-full shadow-md overflow-hidden">
+                class="w-full max-w-lg flex bg-white rounded-full shadow-md overflow-hidden">
                 <input type="text" name="q" placeholder="Pesquisar país"
-                class="flex-grow p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-l-full pl-5">
-                <button type="submit" class="bg-blue-600 hover:bg-blue-900 text-white p-3 px-6 rounded-r-full transition duration-300 ease-in-out flex items-center justify-center"><i class="fas fa-search mr-2"></i> Pesquisar</button>
+                    class="flex-grow p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-l-full pl-5">
+                <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-900 text-white p-3 px-6 rounded-r-full transition duration-300 ease-in-out flex items-center justify-center"><i
+                        class="fas fa-search mr-2"></i> Pesquisar</button>
             </form>
         </div>
     </header>

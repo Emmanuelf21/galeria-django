@@ -1,0 +1,54 @@
+{% extends 'galeria/base.html'%}
+
+{% block content%}
+<div class="container mx-auto mt-8 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl overflow-hidden">
+        <div class="p-8 text-center bg-gray-100 dark:bg-gray-700">
+            <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                Sobre Nós
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Bem-vindo ao **Países para Visitar**! Viajar é para todos, e queremos mostrar que, com planejamento e
+                curiosidade, é possível transformar qualquer destino em uma experiência inesquecível.
+            </p>
+        </div>
+        <div class="p-8 lg:p-12 grid lg:grid-cols-2 gap-8 items-center">
+            <div class="text-gray-600 dark:text-gray-300 space-y-4">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+                    Nossa Paixão, Nossa Missão
+                </h2>
+                <p>
+                    No Países para Visitar, acreditamos que cada país tem uma história única a contar e que viajar é
+                    uma das maneiras mais ricas de aprender, crescer e se conectar com o mundo. Criamos este espaço para
+                    inspirar, informar e ajudar você a planejar suas próximas aventuras internacionais com mais
+                    confiança, propósito e emoção.
+                </p>
+                <p>
+                    Nossa missão é explorar o planeta um país de cada vez, compartilhando experiências reais, dicas
+                    práticas e curiosidades culturais que não aparecem nos guias tradicionais. Se você sonha em caminhar
+                    pelas ruas de Paris, explorar os templos do Japão, se perder nos mercados do Marrocos ou sentir a
+                    energia de uma cidade como Nova York, este é o seu lugar.
+                </p>
+            </div>
+        </div>
+        <div class="p-8 lg:p-12 text-center bg-gray-50 dark:bg-gray-700">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                Aqui você encontra:
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-3xl mx-auto">
+                * Guias de viagem por país, com roteiros, valores médios, clima, documentos necessários e muito mais.
+                <br>
+                * Relatos autênticos, com histórias e aprendizados de quem já esteve lá.
+                <br>
+                * Dicas culturais, para você viajar com mais respeito, conhecimento e sensibilidade.
+                <br>
+                * Sugestões de experiências, para viver o melhor de cada destino, além do óbvio.
+            </p>
+            <a href="{% url 'home' %}"
+                class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300 transform hover:-translate-y-1">
+                Explore os Países
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock%}
